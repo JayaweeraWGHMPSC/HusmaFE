@@ -19,8 +19,38 @@ const About = () => {
         justifyContent: 'center',
         position: 'relative',
         paddingTop: '80px',
-        opacity: 1, // Account for fixed navbar
+        opacity: 1,
       }}>
+        <style>
+          {`
+            @media (max-width: 768px) {
+              .about-hero {
+                min-height: 70vh !important;
+                padding-top: 60px !important;
+              }
+              .hero-subtitle {
+                line-height: 1.3 !important;
+              }
+              .hero-subtitle {
+                line-height: 1.5 !important;
+                display: none !important;
+              }
+            }
+            @media (max-width: 480px) {
+              .about-hero {
+                min-height: 50vh !important;
+                padding-top: 50px !important;
+              }
+              .hero-subtitle {
+                line-height: 1.2 !important;
+              }
+              .hero-description {
+                line-height: 1.4 !important;
+                
+              }
+            }
+          `}
+        </style>
         {/* Dark overlay for better text readability */}
         <div style={{
           position: 'absolute',
@@ -40,7 +70,7 @@ const About = () => {
           padding: '0 20px'
         }}>
           <h1 style={{
-            fontSize: '4rem',
+            fontSize: 'clamp(2.8rem, 8vw, 4rem)',
             fontWeight: '500',
             marginBottom: '1.5rem',
             textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
@@ -48,8 +78,8 @@ const About = () => {
           }}>
             About Us
           </h1>
-          <p style={{
-            fontSize: '1.5rem',
+          <p className="hero-subtitle" style={{
+            fontSize: 'clamp(1rem, 4vw, 1.5rem)',
             lineHeight: '1.6',
             marginBottom: '2rem',
             textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
@@ -57,8 +87,8 @@ const About = () => {
           }}>
             Building Tomorrow's Infrastructure Today
           </p>
-          <p style={{
-            fontSize: '1.2rem',
+          <p className="hero-description" style={{
+            fontSize: 'clamp(0.8rem, 3vw, 1.2rem)',
             lineHeight: '1.8',
             textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
             fontWeight: '500'
@@ -87,7 +117,7 @@ const About = () => {
             .section-title {
               font-size: 2.5rem;
               font-weight: 700;
-              color: #2c3e50;
+              color: #212121ff;
               line-height: 1.2;
               margin-bottom: 30px;
             }
@@ -134,13 +164,31 @@ const About = () => {
               border: 5px solid #fff;
             }
             @media (max-width: 768px) {
-              .img-2 {
-                position: relative;
-                bottom: 0;
-                margin-top: 20px;
+              .about-images {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: row;
+              }
+              .img-1, .img-2 {
+                position: relative !important;
+                bottom: 0 !important;
+                right: 0 !important;
+                width: 48% !important;
+                flex-shrink: 0;
+                border: 3px solid #fff !important;
               }
               .section-title {
                 font-size: 2rem;
+                text-align: center;
+              }
+              .about-text {
+                text-align: center;
+              }
+              .ps-lg-4 {
+                padding-left: 0 !important;
+                text-align: center;
               }
             }
           `}
@@ -180,7 +228,7 @@ const About = () => {
 
       {/* Values Section */}
       <section className="values-section py-5" style={{
-        backgroundColor: '#ffffff',
+        backgroundColor: '#F8F9FA',
 
       }}>
         <div className="container">
@@ -188,7 +236,7 @@ const About = () => {
             <h2 style={{
               fontSize: '2.5rem',
               fontWeight: 'bold',
-              color: '#525252',
+              color: '#212121ff',
               marginBottom: '1rem'
             }}>
               What We Do?
@@ -203,7 +251,7 @@ const About = () => {
 
           <div className="row g-2 justify-content-center" style={{ width: '100%', gap: '0.5rem' }}>
             {/* Design Service */}
-            <div className="col-lg-3 col-md-5 col-sm-9" style={{ backgroundColor: '#f5f5f5ff', padding: '20px 20px', borderRadius: '15px', margin: '0 0.25rem', width: '350px', maxWidth: '90%' }}
+            <div className="col-lg-3 col-md-5 col-sm-9" style={{ backgroundColor: '#f5f5f5ff', padding: '20px 20px', borderRadius: '15px', margin: '0 0.25rem', width: '350px', maxWidth: '90%', border: '2px solid #e9ecef' }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.6)), url(/Design.jpg)';
                 e.currentTarget.style.backgroundSize = 'cover';
@@ -227,7 +275,7 @@ const About = () => {
               }}
             >
             <div className="text-center">
-              <div style={{
+              <div className="service-icon" style={{
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
@@ -268,7 +316,7 @@ const About = () => {
           </div>
 
           {/* Consultant Service */}
-          <div className="col-lg-3 col-md-5 col-sm-9" style={{ backgroundColor: '#f5f5f5ff', padding: '20px 20px', borderRadius: '15px', margin: '0 0.25rem', width: '350px', maxWidth: '90%' }}
+          <div className="col-lg-3 col-md-5 col-sm-9" style={{ backgroundColor: '#f5f5f5ff', padding: '20px 20px', borderRadius: '15px', margin: '0 0.25rem', width: '350px', maxWidth: '90%',border: '2px solid #e9ecef' }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.6)), url(/Consultant.jpg)';
                 e.currentTarget.style.backgroundSize = 'cover';
@@ -292,7 +340,7 @@ const About = () => {
               }}
             >
             <div className="text-center">
-              <div style={{
+              <div className="service-icon" style={{
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
@@ -333,7 +381,7 @@ const About = () => {
           </div>
 
           {/* Construction Service */}
-          <div className="col-lg-3 col-md-5 col-sm-9" style={{ backgroundColor: '#f5f5f5ff', padding: '20px 20px', borderRadius: '15px', margin: '0 0.25rem', width: '350px', maxWidth: '90%' }}
+          <div className="col-lg-3 col-md-5 col-sm-9" style={{ backgroundColor: '#f5f5f5ff', padding: '20px 20px', borderRadius: '15px', margin: '0 0.25rem', width: '350px', maxWidth: '90%', border: '2px solid #e9ecef' }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.6)), url(/Construction.jpg)';
                 e.currentTarget.style.backgroundSize = 'cover';
@@ -357,7 +405,7 @@ const About = () => {
               }}
             >
             <div className="text-center">
-              <div style={{
+              <div className="service-icon" style={{
                 width: '100px',
                 height: '100px',
                 borderRadius: '50%',
@@ -400,103 +448,593 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="team-section py-5" style={{
-        backgroundColor: '#f8f9fa'
+      {/* Our Statistics */}
+      <section className="statistics-section" style={{
+        backgroundColor: '#F8F9FA',
+        padding: '80px 0',
+        color: '#2c3e50',
       }}>
         <div className="container">
-    <div className="text-center mb-5">
-      <h2 style={{
-        fontSize: '2.5rem',
-        fontWeight: 'bold',
-        color: '#3066d9',
-        marginBottom: '1rem'
+          <div className="row">
+            {/* Left Side - Content */}
+            <div className="col-lg-6 col-md-12 mb-4 mb-lg-0">
+              <div className="statistics-content" style={{ paddingRight: '2rem' }}>
+                <div style={{
+                  color: '#7c7c7cff',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  letterSpacing: '2px',
+                  textTransform: 'uppercase',
+                  marginBottom: '20px'
+                }}>
+                  OUR STATISTICS
+                </div>
+                
+                <h2 style={{
+                  fontSize: 'clamp(2rem, 5vw, 3rem)',
+                  fontWeight: '700',
+                  lineHeight: '1.2',
+                  marginBottom: '30px',
+                  color: '#212121ff'
+                }}>
+                  We Turn Ideas Into Reality
+                </h2>
+                
+                <p style={{
+                  fontSize: '16px',
+                  lineHeight: '1.8',
+                  color: '#6c757d',
+                  marginBottom: '30px'
+                }}>
+                  With years of experience and countless successful projects, we have established ourselves 
+                  as a leading engineering consultancy firm. Our track record speaks for our commitment 
+                  to excellence and innovation in every project we undertake.
+                </p>
+                
+                <div className="quality-assurance" style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '15px',
+                  marginTop: '20px'
+                }}>
+                  <div>
+                    <h5 style={{ margin: '0 0 5px 0', color: '#2c3e50' }}>Quality Assurance</h5>
+                    <p style={{ margin: 0, color: '#6c757d', fontSize: '14px' }}>
+                      Every project meets the highest standards
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Statistics Grid */}
+            <div className="col-lg-6 col-md-12">
+              <div className="statistics-grid" style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gap: '30px',
+                height: '100%'
+              }}>
+                <style>
+                  {`
+                    @media (max-width: 768px) {
+                      .statistics-grid {
+                        grid-template-columns: repeat(2, 1fr) !important;
+                        gap: 20px !important;
+                        margin-top: 40px;
+                      }
+                      .stat-item {
+                        text-align: center !important;
+                        padding: 20px 15px !important;
+                      }
+                      .stat-number {
+                        font-size: 2rem !important;
+                      }
+                      .stat-number span {
+                        font-size: 1.2rem !important;
+                      }
+                      .stat-label {
+                        font-size: 12px !important;
+                        line-height: 1.3 !important;
+                      }
+                      .statistics-content {
+                        padding-right: 0 !important;
+                        text-align: center;
+                      }
+                      .quality-assurance {
+                        display: none !important;
+                      }
+                    }
+                    @media (max-width: 480px) {
+                      .statistics-grid {
+                        grid-template-columns: repeat(2, 1fr) !important;
+                        gap: 15px !important;
+                      }
+                      .stat-item {
+                        padding: 15px 10px !important;
+                      }
+                      .stat-number {
+                        font-size: 1.5rem !important;
+                      }
+                      .stat-number span {
+                        font-size: 1rem !important;
+                      }
+                      .stat-label {
+                        font-size: 10px !important;
+                        line-height: 1.2 !important;
+                      }
+                      .quality-assurance {
+                        display: none !important;
+                      }
+                    }
+                  `}
+                </style>
+
+                {/* House Designs Completed */}
+                <div className="stat-item" style={{
+                  backgroundColor: '#f8f9fa',
+                  padding: '30px 20px',
+                  borderRadius: '15px',
+                  textAlign: 'center',
+                  border: '2px solid #e9ecef',
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-5px)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+                  e.currentTarget.style.borderColor = '#d8d8d8ff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = '#e9ecef';
+                }}
+                >
+                  <div className="stat-number" style={{
+                    fontSize: '3rem',
+                    fontWeight: '700',
+                    color: '#3498db',
+                    lineHeight: '1',
+                    marginBottom: '10px'
+                  }}>
+                    500<span style={{ fontSize: '2rem', color: '#3498db' }}>+</span>
+                  </div>
+                  <div className="stat-label" style={{
+                    color: '#2c3e50',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    lineHeight: '1.4'
+                  }}>
+                    House Designs<br/>Completed
+                  </div>
+                </div>
+
+                {/* Construction Projects Completed */}
+                <div className="stat-item" style={{
+                  backgroundColor: '#f8f9fa',
+                  padding: '30px 20px',
+                  borderRadius: '15px',
+                  textAlign: 'center',
+                  border: '2px solid #e9ecef',
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-5px)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+                  e.currentTarget.style.borderColor = '#d8d8d8ff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = '#e9ecef';
+                }}
+                >
+                  <div className="stat-number" style={{
+                    fontSize: '3rem',
+                    fontWeight: '700',
+                    color: '#3498db',
+                    lineHeight: '1',
+                    marginBottom: '10px'
+                  }}>
+                    40<span style={{ fontSize: '2rem', color: '#3498db' }}>+</span>
+                  </div>
+                  <div className="stat-label" style={{
+                    color: '#2c3e50',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    lineHeight: '1.4'
+                  }}>
+                    Construction Projects<br/>Completed
+                  </div>
+                </div>
+
+                {/* Locations */}
+                <div className="stat-item" style={{
+                  backgroundColor: '#f8f9fa',
+                  padding: '30px 20px',
+                  borderRadius: '15px',
+                  textAlign: 'center',
+                  border: '2px solid #e9ecef',
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-5px)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+                  e.currentTarget.style.borderColor = '#d8d8d8ff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = '#e9ecef';
+                }}
+                >
+                  <div className="stat-number" style={{
+                    fontSize: '3rem',
+                    fontWeight: '700',
+                    color: '#3498db',
+                    lineHeight: '1',
+                    marginBottom: '10px'
+                  }}>
+                    20<span style={{ fontSize: '2rem', color: '#3498db' }}>+</span>
+                  </div>
+                  <div className="stat-label" style={{
+                    color: '#2c3e50',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    lineHeight: '1.4'
+                  }}>
+                    Locations
+                  </div>
+                </div>
+
+                {/* Workforce */}
+                <div className="stat-item" style={{
+                  backgroundColor: '#f8f9fa',
+                  padding: '30px 20px',
+                  borderRadius: '15px',
+                  textAlign: 'center',
+                  border: '2px solid #e9ecef',
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-5px)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+                 e.currentTarget.style.borderColor = '#d8d8d8ff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = '#e9ecef';
+                }}
+                >
+                  <div className="stat-number" style={{
+                    fontSize: '3rem',
+                    fontWeight: '700',
+                    color: '#3498db',
+                    lineHeight: '1',
+                    marginBottom: '10px'
+                  }}>
+                    200<span style={{ fontSize: '2rem', color: '#3498db' }}>+</span>
+                  </div>
+                  <div className="stat-label" style={{
+                    color: '#2c3e50',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    lineHeight: '1.4'
+                  }}>
+                    Workforce
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What Our Client's Say Section */}
+      <section className="testimonials-section" style={{
+        backgroundColor: '#F8F9FA',
+        padding: '80px 0',
       }}>
-        Why Choose Us
-      </h2>
-      <div style={{
-        width: '80px',
-        height: '3px',
-        backgroundColor: '#3066d9',
-        margin: '0 auto 2rem'
-      }}></div>
-      <p style={{
-        fontSize: '1.1rem',
-        color: '#6c757d',
-        maxWidth: '600px',
-        margin: '0 auto'
-      }}>
-        With decades of combined experience and a passion for excellence,
-        we bring expertise and dedication to every project.
-      </p>
-    </div>
-
-    <div className="row g-4">
-      <div className="col-lg-4 col-md-6">
-        <div className="card border-0 shadow-sm h-100">
-          <div className="card-body text-center p-4">
-            <div style={{
-              fontSize: '3rem',
-              color: '#3066d9',
+        <div className="container">
+          <div className="text-center mb-5">
+            
+            <h2 style={{
+              fontSize: '2.5rem',
+              fontWeight: 'bold',
+              color: '#212121ff',
               marginBottom: '1rem'
             }}>
-              🏗️
-            </div>
-            <h5 style={{ color: '#3066d9', marginBottom: '1rem' }}>
-              Expert Engineering
-            </h5>
-            <p style={{ color: '#6c757d', lineHeight: '1.6' }}>
-              Our team of certified engineers brings decades of experience
-              in structural, civil, and infrastructure engineering.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="col-lg-4 col-md-6">
-        <div className="card border-0 shadow-sm h-100">
-          <div className="card-body text-center p-4">
+              What Our Client's Say
+            </h2>
             <div style={{
-              fontSize: '3rem',
-              color: '#3066d9',
-              marginBottom: '1rem'
-            }}>
-              ⏱️
-            </div>
-            <h5 style={{ color: '#3066d9', marginBottom: '1rem' }}>
-              Timely Delivery
-            </h5>
-            <p style={{ color: '#6c757d', lineHeight: '1.6' }}>
-              We understand the importance of deadlines and consistently
-              deliver projects on time without compromising quality.
-            </p>
+              width: '80px',
+              height: '3px',
+              backgroundColor: '#525252',
+              margin: '0 auto'
+            }}></div>
           </div>
-        </div>
-      </div>
 
-      <div className="col-lg-4 col-md-6 mx-lg-0 mx-md-auto" style={{ maxWidth: '400px' }}>
-        <div className="card border-0 shadow-sm h-100">
-          <div className="card-body text-center p-4">
-            <div style={{
-              fontSize: '3rem',
-              color: '#3066d9',
-              marginBottom: '1rem'
-            }}>
-              💼
+          <div className="row justify-content-center">
+            <style>
+              {`
+                @media (max-width: 768px) {
+                  .testimonial-card {
+                    margin-bottom: 30px !important;
+                  }
+                  .client-image {
+                    width: 70px !important;
+                    height: 70px !important;
+                  }
+                  .client-name {
+                    font-size: 1.1rem !important;
+                  }
+                  .testimonial-text {
+                    font-size: 14px !important;
+                    line-height: 1.5 !important;
+                  }
+                }
+              `}
+            </style>
+
+            {/* Review 1 */}
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div className="testimonial-card" style={{
+                backgroundColor: '#f8f9fa',
+                padding: '40px 30px',
+                borderRadius: '15px',
+                textAlign: 'center',
+                border: '1px solid #e9ecef',
+                height: '100%',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-10px)';
+                e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.1)';
+                e.currentTarget.style.borderColor = '#b7b7b7ff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.borderColor = '#e9ecef';
+              }}
+              >
+                {/* Client Image */}
+                <div style={{ marginBottom: '20px' }}>
+                  <img
+                    src="/r1.jpg"
+                    alt="Sarah Johnson"
+                    className="client-image"
+                    style={{
+                      width: '80px',
+                      height: '80px',
+                      borderRadius: '50%',
+                      objectFit: 'cover',
+                      margin: '0 auto'
+                    }}
+                  />
+                </div>
+
+                {/* Client Name */}
+                <h4 className="client-name" style={{
+                  color: '#2c3e50',
+                  fontSize: '1.3rem',
+                  fontWeight: '600',
+                  marginBottom: '10px'
+                }}>
+                  Sarah Johnson
+                </h4>
+
+                {/* Client Position */}
+                <p style={{
+                  color: '#6c757d',
+                  fontSize: '14px',
+                  marginBottom: '20px',
+                  fontWeight: '500'
+                }}>
+                  Property Developer
+                </p>
+
+                {/* Testimonial Message */}
+                <p className="testimonial-text" style={{
+                  color: '#6c757d',
+                  fontSize: '16px',
+                  lineHeight: '1.7',
+                  marginBottom: '20px',
+                  fontStyle: 'italic'
+                }}>
+                  "Husma Engineering transformed our vision into reality with exceptional architectural design. Their attention to detail and innovative approach exceeded our expectations. Highly recommended!"
+                </p>
+
+                {/* 5 Star Rating */}
+                <div className="star-rating" style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: '5px'
+                }}>
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <span key={star} style={{
+                      color: '#ffc107',
+                      fontSize: '20px'
+                    }}>★</span>
+                  ))}
+                </div>
+              </div>
             </div>
-            <h5 style={{ color: '#3066d9', marginBottom: '1rem' }}>
-              Comprehensive Solutions
-            </h5>
-            <p style={{ color: '#6c757d', lineHeight: '1.6' }}>
-              From initial design to final construction, we provide
-              end-to-end engineering solutions for all your needs.
-            </p>
+
+            {/* Review 2 */}
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div className="testimonial-card" style={{
+                backgroundColor: '#f8f9fa',
+                padding: '40px 30px',
+                borderRadius: '15px',
+                textAlign: 'center',
+                border: '1px solid #e9ecef',
+                height: '100%',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-10px)';
+                e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.1)';
+                e.currentTarget.style.borderColor = '#b7b7b7ff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.borderColor = '#e9ecef';
+              }}
+              >
+                {/* Client Image */}
+                <div style={{ marginBottom: '20px' }}>
+                  <img
+                    src="/r2.jpg"
+                    alt="Michael Chen"
+                    className="client-image"
+                    style={{
+                      width: '80px',
+                      height: '80px',
+                      borderRadius: '50%',
+                      objectFit: 'cover',
+                      margin: '0 auto'
+                    }}
+                  />
+                </div>
+
+                {/* Client Name */}
+                <h4 className="client-name" style={{
+                  color: '#2c3e50',
+                  fontSize: '1.3rem',
+                  fontWeight: '600',
+                  marginBottom: '10px'
+                }}>
+                  Michael Chen
+                </h4>
+
+                {/* Client Position */}
+                <p style={{
+                  color: '#6c757d',
+                  fontSize: '14px',
+                  marginBottom: '20px',
+                  fontWeight: '500'
+                }}>
+                  Construction Manager
+                </p>
+
+                {/* Testimonial Message */}
+                <p className="testimonial-text" style={{
+                  color: '#6c757d',
+                  fontSize: '16px',
+                  lineHeight: '1.7',
+                  marginBottom: '20px',
+                  fontStyle: 'italic'
+                }}>
+                  "Outstanding structural engineering solutions! The team's expertise in MEP design helped us complete our commercial project on time and within budget. Professional service throughout."
+                </p>
+
+                {/* 5 Star Rating */}
+                <div className="star-rating" style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: '5px'
+                }}>
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <span key={star} style={{
+                      color: '#ffc107',
+                      fontSize: '20px'
+                    }}>★</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Review 3 */}
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div className="testimonial-card" style={{
+                backgroundColor: '#f8f9fa',
+                padding: '40px 30px',
+                borderRadius: '15px',
+                textAlign: 'center',
+                border: '1px solid #e9ecef',
+                height: '100%',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-10px)';
+                e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.1)';
+                e.currentTarget.style.borderColor = '#b7b7b7ff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.borderColor = '#e9ecef';
+              }}
+              >
+                {/* Client Image */}
+                <div style={{ marginBottom: '20px' }}>
+                  <img
+                    src="/r3.jpg"
+                    alt="Emily Rodriguez"
+                    className="client-image"
+                    style={{
+                      width: '80px',
+                      height: '80px',
+                      borderRadius: '50%',
+                      objectFit: 'cover',
+                      margin: '0 auto'
+                    }}
+                  />
+                </div>
+
+                {/* Client Name */}
+                <h4 className="client-name" style={{
+                  color: '#2c3e50',
+                  fontSize: '1.3rem',
+                  fontWeight: '600',
+                  marginBottom: '10px'
+                }}>
+                  Emily Rodriguez
+                </h4>
+
+                {/* Client Position */}
+                <p style={{
+                  color: '#6c757d',
+                  fontSize: '14px',
+                  marginBottom: '20px',
+                  fontWeight: '500'
+                }}>
+                  Homeowner
+                </p>
+
+                {/* Testimonial Message */}
+                <p className="testimonial-text" style={{
+                  color: '#6c757d',
+                  fontSize: '16px',
+                  lineHeight: '1.7',
+                  marginBottom: '20px',
+                  fontStyle: 'italic'
+                }}>
+                  "From consultation to construction, Husma Engineering provided exceptional service. Their creative designs and technical expertise made our dream home a reality. Couldn't be happier!"
+                </p>
+
+                {/* 5 Star Rating */}
+                <div className="star-rating" style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: '5px'
+                }}>
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <span key={star} style={{
+                      color: '#ffc107',
+                      fontSize: '20px'
+                    }}>★</span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  </section>
+      </section>
+      
     </div>
   );
 };

@@ -83,8 +83,8 @@ const Navbar = () => {
             }}>
             </div>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.2' }}>
-            <span style={{ 
+          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.2' }} >
+            <span className='nav-husma' style={{ 
               fontSize: '1.9rem', 
               fontWeight: 'bold', 
               color: '#3066d9',
@@ -353,6 +353,7 @@ const Navbar = () => {
             padding-left: 15px !important;
             padding-right: 15px !important;
           }
+          
           
           .navbar-collapse {
             position: absolute;
