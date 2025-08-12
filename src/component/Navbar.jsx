@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navbar = () => {
@@ -49,7 +50,7 @@ const Navbar = () => {
     >
       <div className="container-fluid" style={{ paddingLeft: '3%', paddingRight: '3%' }}>
         {/* Logo */}
-        <a href="/" className="navbar-brand" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <Link to="/" className="navbar-brand" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div style={{ 
             width: '50px', 
             height: '50px', 
@@ -100,7 +101,7 @@ const Navbar = () => {
               ENGINEERING
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Mobile hamburger button */}
         <button
@@ -212,8 +213,8 @@ const Navbar = () => {
             }}
           >
             <li className="nav-item">
-              <a 
-                href="/"
+              <Link 
+                to="/"
                 className="nav-link"
                 onClick={closeNavbar}
                 style={{
@@ -235,11 +236,11 @@ const Navbar = () => {
                 }}
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a 
-                href="/about"
+              <Link 
+                to="/about"
                 className="nav-link"
                 onClick={closeNavbar}
                 style={{
@@ -261,11 +262,11 @@ const Navbar = () => {
                 }}
               >
                 About
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a 
-                href="/services"
+              <Link 
+                to="/services"
                 className="nav-link"
                 onClick={closeNavbar}
                 style={{
@@ -287,11 +288,11 @@ const Navbar = () => {
                 }}
               >
                 Services
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a 
-                href="/projects"
+              <Link 
+                to="/projects"
                 className="nav-link"
                 onClick={closeNavbar}
                 style={{
@@ -313,11 +314,11 @@ const Navbar = () => {
                 }}
               >
                 Projects
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a 
-                href="/contact"
+              <Link 
+                to="/contact"
                 className="nav-link"
                 onClick={closeNavbar}
                 style={{
@@ -339,7 +340,7 @@ const Navbar = () => {
                 }}
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
